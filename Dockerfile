@@ -19,6 +19,8 @@ RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubu
     gdebi -n ss-latest.deb && \
     rm -f version.txt ss-latest.deb
 
+RUN echo "pwd = $PWD"
+RUN ls -lt 
 # Install R packages that are required
 # TODO: add further package if you need!
 RUN R -e "install.packages(c('shiny', 'shinydashboard'), repos='http://cran.rstudio.com/')"
